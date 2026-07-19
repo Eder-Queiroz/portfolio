@@ -1,0 +1,14 @@
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: var(--space-5);
+  max-width: 1120px; margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  backdrop-filter: blur(8px);
+}
+.brand { font-weight: 700; text-decoration: none; font-size: var(--text-lg); }
+.brand-accent { color: var(--color-secondary); }
+.site-nav { display: flex; gap: var(--space-4); margin-left: auto; }
+.site-nav a { text-decoration: none; font-size: var(--text-sm); font-weight: 500; padding: var(--space-1) var(--space-2); border-radius: 8px; transition: background var(--transition); }
+.site-nav a:hover { background: var(--color-primary); }
+@media (max-width: 560px) { .site-nav { display: none; } }

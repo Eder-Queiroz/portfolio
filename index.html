@@ -7,11 +7,37 @@
     <title>Eder Queiroz — Engenheiro de Software</title>
   </head>
   <body>
-    <main id="app" class="bento-grid">
-      <div class="card"><p data-i18n="hero.hello"></p></div>
-      <div class="card card--span2">Card 2 (span 2)</div>
-      <div class="card">Card 3</div>
+    <header class="site-header">
+      <a class="brand mono" href="#top">eder<span class="brand-accent">queiroz</span></a>
+      <nav class="site-nav">
+        <a href="#about" data-i18n="nav.about"></a>
+        <a href="#cases" data-i18n="nav.cases"></a>
+        <a href="#experience" data-i18n="nav.experience"></a>
+        <a href="#contact" data-i18n="nav.contact"></a>
+      </nav>
+      <button id="lang-toggle" class="chip" type="button" aria-label="Switch language">
+        <span data-i18n="lang.toggle"></span>
+      </button>
+    </header>
+    <main id="top" class="bento-grid">
+      <section class="card card--full hero">
+        <p class="hero-hello" data-i18n="hero.hello"></p>
+        <h1 class="hero-roles mono" aria-live="off"><span id="typing"></span><span class="caret" aria-hidden="true"></span></h1>
+        <p class="hero-tagline" data-i18n="hero.tagline"></p>
+        <p class="muted" data-i18n="hero.location"></p>
+        <a class="btn-primary" href="#contact" data-i18n="hero.cta"></a>
+      </section>
+      <section id="about" class="card card--span2"></section>
+      <section id="skills" class="card card--span2"></section>
+      <section id="cases" class="card card--full cases-intro"></section>
+      <section id="ledger-case" class="card card--span2"></section>
+      <section id="sqs-case" class="card card--span2"></section>
+      <section id="ga-case" class="card card--span2"></section>
+      <section id="wins" class="card card--span2"></section>
+      <section id="experience" class="card card--full"></section>
+      <section id="contact" class="card card--full"></section>
     </main>
+    <footer class="site-footer muted"><p data-i18n="footer.built"></p></footer>
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

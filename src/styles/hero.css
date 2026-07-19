@@ -1,0 +1,15 @@
+.hero { padding: var(--space-6); }
+.hero-hello { font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-2); }
+.hero-roles { min-height: 1.3em; font-size: clamp(var(--text-xl), 4vw, var(--text-2xl)); }
+.hero-tagline { max-width: 60ch; font-size: var(--text-lg); color: var(--color-text-soft); }
+.caret { display: inline-block; width: 0.6ch; height: 1em; margin-left: 2px; background: var(--color-primary-strong); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.btn-primary {
+  display: inline-block; margin-top: var(--space-3);
+  background: var(--color-primary); color: var(--color-text);
+  padding: var(--space-3) var(--space-5); border-radius: var(--radius-chip);
+  font-weight: 600; text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn-primary:hover { background: var(--color-primary-strong); transform: translateY(-1px); }
+.site-footer { max-width: 1120px; margin: 0 auto; padding: var(--space-5) var(--space-4); text-align: center; }
