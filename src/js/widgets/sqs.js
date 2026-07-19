@@ -8,7 +8,7 @@ export function initSqsWidget(root) {
     retried: root.querySelector('.c-retried'),
     dlq: root.querySelector('.c-dlq'),
   }
-  let queue = [], nextId = 1
+  let queue = []
   const totals = { delivered: 0, retried: 0, dlq: 0 }
 
   const renderQueue = () => {
@@ -30,7 +30,7 @@ export function initSqsWidget(root) {
     return
   }
 
-  setInterval(() => { if (queue.length < 8) { queue.push({ id: nextId++, tries: 0 }); renderQueue() } }, 900)
+  setInterval(() => { if (queue.length < 8) { queue.push({ tries: 0 }); renderQueue() } }, 900)
 
   setInterval(() => {
     const msg = queue.shift()

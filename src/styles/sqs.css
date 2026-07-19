@@ -4,7 +4,7 @@
 .sqs-box-label { font-size: var(--text-xs); font-family: var(--font-mono); color: var(--color-text-soft); text-transform: uppercase; }
 .sqs-arrow { align-self: center; color: var(--color-secondary); font-size: var(--text-xl); }
 .sqs-slots, .sqs-processing { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-top: var(--space-2); }
-.sqs-msg { width: 22px; height: 22px; border-radius: 6px; background: var(--color-secondary); display: grid; place-items: center; color: #fff; font-size: 10px; font-family: var(--font-mono); transition: background var(--transition), transform var(--transition); }
+.sqs-msg { width: 22px; height: 22px; border-radius: 6px; background: var(--color-secondary); display: grid; place-items: center; color: var(--color-card); font-size: 10px; font-family: var(--font-mono); transition: background var(--transition), transform var(--transition); }
 .sqs-msg.retry { background: var(--color-warning); }
 .sqs-msg.pop { transform: scale(1.15); }
 .sqs-counters { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: var(--text-sm); flex-wrap: wrap; }

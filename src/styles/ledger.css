@@ -3,6 +3,6 @@
 .ledger-batch.active { border-color: var(--color-primary-strong); box-shadow: 0 0 0 2px var(--color-primary); }
 .ledger-fill { position: absolute; inset: 0; background: var(--color-secondary); transform-origin: left; transition: transform 250ms ease; }
 .ledger-batch.empty .ledger-fill { background: var(--color-border); }
-.ledger-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-3); font-family: var(--font-mono); font-size: var(--text-xs); color: #fff; z-index: 1; }
+.ledger-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-3); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-card); z-index: 1; }
 .ledger-count { color: var(--color-text-soft); font-size: var(--text-sm); }
 .metric { display: inline-block; margin-top: var(--space-2); padding: var(--space-1) var(--space-3); background: var(--color-primary); border-radius: var(--radius-chip); font-weight: 600; font-size: var(--text-sm); }
