@@ -29,12 +29,13 @@ export function initLedgerWidget(root) {
 
   const tick = () => {
     let amount = 40 + Math.floor(Math.random() * 41)
-    redeemed += amount
+    let consumed = 0
     for (const b of state) {
       if (amount === 0) break
       const take = Math.min(b.left, amount)
-      b.left -= take; amount -= take
+      b.left -= take; amount -= take; consumed += take
     }
+    redeemed += consumed
     render()
     const done = state.every((b) => b.left === 0)
     if (done) { timer = setTimeout(() => { reset(); render(); loop() }, 1500) } else loop()
