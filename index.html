@@ -82,9 +82,43 @@
           <button class="chip ga-restart" type="button" data-i18n="ga.restart"></button>
         </div>
       </section>
-      <section id="wins" class="card card--span2"></section>
-      <section id="experience" class="card card--full"></section>
-      <section id="contact" class="card card--full"></section>
+      <section id="wins" class="card card--span2">
+        <h2 data-i18n="wins.title"></h2>
+        <ul class="wins-list" role="list">
+          <li class="win"><span class="win-medal" aria-hidden="true">🥇</span><div><b data-i18n="wins.hack1"></b> <span class="muted" data-i18n="wins.hack1.desc"></span></div></li>
+          <li class="win"><span class="win-medal" aria-hidden="true">🥉</span><div><b data-i18n="wins.hack3"></b> <span class="muted" data-i18n="wins.hack3.desc"></span></div></li>
+          <li class="win"><span class="win-medal" aria-hidden="true">🏅</span><div><b data-i18n="wins.honor"></b> <span class="muted" data-i18n="wins.honor.desc"></span></div></li>
+        </ul>
+      </section>
+      <section id="experience" class="card card--full">
+        <h2 data-i18n="exp.title"></h2>
+        <ol class="timeline" role="list">
+          <li class="timeline-item">
+            <div class="timeline-head"><b data-i18n="exp.gd.company"></b><span class="mono muted" data-i18n="exp.gd.period"></span></div>
+            <p class="timeline-role" data-i18n="exp.gd.role"></p>
+            <p class="muted" data-i18n="exp.gd.desc"></p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-head"><b data-i18n="exp.bw.company"></b><span class="mono muted" data-i18n="exp.bw.period"></span></div>
+            <p class="timeline-role" data-i18n="exp.bw.role"></p>
+            <p class="muted" data-i18n="exp.bw.desc"></p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-head"><b data-i18n="exp.edu.company"></b><span class="mono muted" data-i18n="exp.edu.period"></span></div>
+            <p class="timeline-role" data-i18n="exp.edu.role"></p>
+            <p class="muted" data-i18n="exp.edu.desc"></p>
+          </li>
+        </ol>
+      </section>
+      <section id="contact" class="card card--full contact">
+        <h2 data-i18n="contact.title"></h2>
+        <p data-i18n="contact.body"></p>
+        <div class="contact-actions">
+          <a class="btn-primary" href="mailto:ederjuniodesouzaqueiroz@gmail.com" data-i18n="contact.cta"></a>
+          <a class="chip" href="https://www.linkedin.com/in/ederqueirozdev" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="https://github.com/EderQueiroz" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
     </main>
     <footer class="site-footer muted"><p data-i18n="footer.built"></p></footer>
     <script type="module" src="/src/js/main.js"></script>
