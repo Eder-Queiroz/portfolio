@@ -56,7 +56,23 @@
         <p class="mono ledger-count" aria-hidden="true"></p>
         <p class="metric" data-i18n="ledger.metric"></p>
       </section>
-      <section id="sqs-case" class="card card--span2"></section>
+      <section id="sqs-case" class="card card--span2">
+        <h3 data-i18n="sqs.title"></h3>
+        <p data-i18n="sqs.desc"></p>
+        <div class="sqs-stage" aria-hidden="true">
+          <div class="sqs-lane">
+            <div class="sqs-box sqs-queue"><span class="sqs-box-label" data-i18n="sqs.queue"></span><div class="sqs-slots"></div></div>
+            <div class="sqs-arrow mono">→</div>
+            <div class="sqs-box sqs-consumer"><span class="sqs-box-label" data-i18n="sqs.consumer"></span><div class="sqs-processing"></div></div>
+          </div>
+          <div class="sqs-counters mono">
+            <span class="sqs-counter ok">✓ <b class="c-delivered">0</b> <span data-i18n="sqs.delivered"></span></span>
+            <span class="sqs-counter warn">↻ <b class="c-retried">0</b> <span data-i18n="sqs.retried"></span></span>
+            <span class="sqs-counter danger">☠ <b class="c-dlq">0</b> <span data-i18n="sqs.dlq"></span></span>
+          </div>
+        </div>
+        <p class="metric" data-i18n="sqs.metric"></p>
+      </section>
       <section id="ga-case" class="card card--span2"></section>
       <section id="wins" class="card card--span2"></section>
       <section id="experience" class="card card--full"></section>
