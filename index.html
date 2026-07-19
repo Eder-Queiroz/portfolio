@@ -73,7 +73,15 @@
         </div>
         <p class="metric" data-i18n="sqs.metric"></p>
       </section>
-      <section id="ga-case" class="card card--span2"></section>
+      <section id="ga-case" class="card card--span2">
+        <h3 data-i18n="ga.title"></h3>
+        <p data-i18n="ga.desc"></p>
+        <canvas class="ga-canvas" width="440" height="200" aria-hidden="true"></canvas>
+        <div class="ga-bar">
+          <span class="mono ga-status" aria-live="polite"></span>
+          <button class="chip ga-restart" type="button" data-i18n="ga.restart"></button>
+        </div>
+      </section>
       <section id="wins" class="card card--span2"></section>
       <section id="experience" class="card card--full"></section>
       <section id="contact" class="card card--full"></section>
