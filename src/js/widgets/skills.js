@@ -1,6 +1,9 @@
 import { computePosition, offset, flip, shift } from '@floating-ui/dom'
 import { t, onLangChange } from '../i18n.js'
 
+// Must match --transition duration in tokens.css
+const HIDE_MS = 200
+
 export function initSkillsWidget(root) {
   const tip = document.createElement('div')
   tip.className = 'skill-tooltip'
@@ -17,6 +20,7 @@ export function initSkillsWidget(root) {
     const { x, y } = await computePosition(chip, tip, {
       placement: 'top', middleware: [offset(8), flip(), shift({ padding: 8 })],
     })
+    if (chip !== current) return
     Object.assign(tip.style, { left: `${x}px`, top: `${y}px` })
   }
 
@@ -44,7 +48,7 @@ export function initSkillsWidget(root) {
     hideTimer = setTimeout(() => {
       tip.hidden = true
       hideTimer = null
-    }, 200)
+    }, HIDE_MS)
   }
 
   root.querySelectorAll('[data-skill]').forEach((chip) => {
