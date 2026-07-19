@@ -1,0 +1,8 @@
+.skill-list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }
+.skill-tooltip {
+  position: absolute; top: 0; left: 0; z-index: 100;
+  max-width: 280px; padding: var(--space-3) var(--space-4);
+  background: var(--color-text); color: var(--color-surface);
+  border-radius: 12px; font-size: var(--text-sm); line-height: 1.5;
+  box-shadow: var(--shadow-card); pointer-events: none;
+}
