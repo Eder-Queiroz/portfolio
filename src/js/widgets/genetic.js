@@ -76,9 +76,11 @@ export function initGeneticWidget(root) {
     clearInterval(timer)
     pop = Array.from({ length: 40 }, randomGenome); gen = 0
     if (prefersReducedMotion()) {
-      while (draw() > 0 && gen < 5000) step()
+      while (gen < 5000 && conflicts(pop.reduce((a,b)=>conflicts(a)<=conflicts(b)?a:b)) > 0) step()
+      draw()
       return
     }
+    draw()
     timer = setInterval(() => { if (draw() === 0) clearInterval(timer); else step() }, 90)
   }
 
