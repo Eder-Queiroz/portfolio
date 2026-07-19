@@ -45,8 +45,17 @@
           <li><button class="chip" data-skill="postgres">PostgreSQL</button></li>
         </ul>
       </section>
-      <section id="cases" class="card card--full cases-intro"></section>
-      <section id="ledger-case" class="card card--span2"></section>
+      <section id="cases" class="card card--full cases-intro">
+        <h2 data-i18n="cases.title"></h2>
+        <p class="muted" data-i18n="cases.subtitle"></p>
+      </section>
+      <section id="ledger-case" class="card card--span2">
+        <h3 data-i18n="ledger.title"></h3>
+        <p data-i18n="ledger.desc"></p>
+        <div class="ledger-stage" aria-hidden="true"></div>
+        <p class="mono ledger-count" aria-hidden="true"></p>
+        <p class="metric" data-i18n="ledger.metric"></p>
+      </section>
       <section id="sqs-case" class="card card--span2"></section>
       <section id="ga-case" class="card card--span2"></section>
       <section id="wins" class="card card--span2"></section>
