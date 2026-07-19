@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FFF5E6"/>
+  <rect x="90" y="90" width="140" height="140" rx="28" fill="#FAD4C0"/>
+  <text x="160" y="182" font-family="JetBrains Mono, 'Courier New', monospace" font-size="56" font-weight="700" fill="#111827" text-anchor="middle">eq</text>
+  <text x="90" y="360" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" fill="#111827">Eder Queiroz</text>
+  <text x="90" y="415" font-family="JetBrains Mono, 'Courier New', monospace" font-size="18" font-weight="500" fill="#4B5563">Engenheiro de Software — Node.js · AWS · Flutter</text>
+</svg>
