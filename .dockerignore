@@ -1,0 +1,8 @@
+node_modules
+dist
+.git
+.superpowers
+docs
+*.local
+*.log
+.DS_Store
