@@ -1,23 +1,74 @@
 *, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--color-surface);
+  background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
-h1, h2, h3 { line-height: 1.2; margin: 0 0 var(--space-3); }
-h1 { font-size: var(--text-2xl); font-weight: 800; }
-h2 { font-size: var(--text-xl); font-weight: 700; }
-h3 { font-size: var(--text-lg); font-weight: 600; }
+
+/* Brilho ambiente quente, fixo atrás de tudo */
+body::before {
+  content: "";
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(1100px 560px at 18% -12%, rgba(250, 212, 192, .12), transparent 60%),
+    radial-gradient(900px 520px at 100% 4%, rgba(128, 161, 193, .07), transparent 55%);
+}
+
+h1, h2, h3 { line-height: 1.12; margin: 0 0 var(--space-3); letter-spacing: -.02em; }
+h1 { font-size: var(--text-3xl); font-weight: 800; }
+h2 { font-size: var(--text-2xl); font-weight: 700; }
+h3 { font-size: var(--text-xl); font-weight: 600; }
 p { margin: 0 0 var(--space-3); }
 a { color: inherit; }
-button { font: inherit; cursor: pointer; }
-:focus-visible { outline: 3px solid var(--color-secondary); outline-offset: 2px; border-radius: 4px; }
+button { font: inherit; cursor: pointer; color: inherit; background: none; border: none; }
+img, canvas { max-width: 100%; }
+
+::selection { background: var(--color-primary); color: #17120F; }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 6px; }
+
 .mono { font-family: var(--font-mono); }
-.muted { color: var(--color-text-soft); font-size: var(--text-sm); }
+.muted { color: var(--color-text-soft); }
+.lead {
+  font-size: var(--text-lg); color: var(--color-text-soft);
+  max-width: 62ch; line-height: 1.75; margin: 0 0 var(--space-4);
+}
+.section-title {
+  font-size: clamp(var(--text-2xl), 4.4vw, 2.7rem);
+  font-weight: 800; letter-spacing: -.025em;
+  max-width: 22ch; margin: 0 0 var(--space-5);
+}
+
+.kicker {
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--color-primary);
+  margin: 0 0 var(--space-4);
+}
+.kicker::before { content: ""; width: 26px; height: 1px; background: var(--color-primary); opacity: .55; }
+
+/* Reveal on scroll — só ativa quando o JS marca <html class="js">, para
+   preservar o conteúdo visível sem JavaScript. */
+.js [data-reveal] {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+.js [data-reveal]:nth-child(2) { transition-delay: .06s; }
+.js [data-reveal]:nth-child(3) { transition-delay: .12s; }
+.js [data-reveal]:nth-child(4) { transition-delay: .18s; }
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }

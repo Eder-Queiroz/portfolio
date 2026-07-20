@@ -1,26 +1,46 @@
 :root {
+  /* Surfaces — warm charcoal (não preto puro) para casar com o pêssego */
+  --color-bg: #0F0E0D;
+  --color-bg-soft: #14110F;
+  --color-card: #1A1613;
+  --color-card-hover: #211C18;
+
+  /* Acento — cor de marca */
   --color-primary: #FAD4C0;
-  --color-primary-strong: #F5B08F; /* hover/active derivado do primary */
-  --color-secondary: #80A1C1;
-  --color-success: #16A34A;
-  --color-warning: #D97706;
-  --color-danger: #DC2626;
-  --color-surface: #FFF5E6;
-  --color-card: #FFFFFF;
-  --color-text: #111827;
-  --color-text-soft: #4B5563;
-  --color-border: rgba(17, 24, 39, 0.08);
+  --color-primary-strong: #F5B08F;
+  --color-secondary: #80A1C1; /* acento frio dos widgets */
+
+  /* Semânticos (mais claros para fundo escuro) */
+  --color-success: #34D399;
+  --color-warning: #FBBF24;
+  --color-danger: #F87171;
+
+  /* Texto — brancos quentes */
+  --color-text: #F5F1EC;
+  --color-text-soft: #A8A29B;
+  --color-text-dim: #6F6A63;
+
+  /* Linhas e brilho */
+  --color-border: rgba(245, 241, 236, 0.10);
+  --color-border-strong: rgba(245, 241, 236, 0.20);
+  --glow-primary: rgba(250, 212, 192, 0.20);
 
   --space-1: 4px; --space-2: 8px; --space-3: 12px;
   --space-4: 16px; --space-5: 24px; --space-6: 32px;
+  --space-8: 48px; --space-10: 64px; --space-12: 96px;
 
-  --radius-card: 20px; --radius-chip: 999px;
+  --radius-sm: 10px; --radius-card: 22px; --radius-chip: 999px;
 
   --font-sans: 'Inter Variable', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', monospace;
   --text-xs: 12px; --text-sm: 14px; --text-base: 16px;
-  --text-lg: 20px; --text-xl: 24px; --text-2xl: 32px;
+  --text-lg: 20px; --text-xl: 26px; --text-2xl: 34px;
+  --text-3xl: clamp(2.4rem, 6.5vw, 4.4rem);
 
-  --shadow-card: 0 1px 2px rgba(17,24,39,.04), 0 8px 24px rgba(17,24,39,.06);
+  --shadow-card: 0 1px 2px rgba(0,0,0,.4), 0 20px 48px -24px rgba(0,0,0,.7);
   --transition: 200ms cubic-bezier(.4, 0, .2, 1);
+  --ease-out: cubic-bezier(.22, .61, .36, 1);
+
+  --container: 1080px;
+  --header-h: 64px;
 }

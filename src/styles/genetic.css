@@ -1,3 +1,6 @@
-.ga-canvas { width: 100%; height: auto; margin-top: var(--space-4); border-radius: 12px; background: var(--color-surface); }
-.ga-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-3); flex-wrap: wrap; }
-.ga-status { font-size: var(--text-sm); color: var(--color-text-soft); }
+.ga-canvas {
+  width: 100%; height: auto; margin-top: var(--space-6);
+  border-radius: 14px; background: #14110F; border: 1px solid var(--color-border);
+}
+.ga-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap; }
+.ga-status { font-size: var(--text-sm); color: var(--color-text-soft); font-family: var(--font-mono); }

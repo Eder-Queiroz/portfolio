@@ -29,5 +29,6 @@ function apply() {
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en'
   document.title = t('meta.title')
   document.querySelector('meta[name="description"]')?.setAttribute('content', t('meta.description'))
+  document.getElementById('lang-toggle')?.setAttribute('aria-label', t('lang.aria'))
   document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n) })
 }

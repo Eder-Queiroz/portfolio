@@ -1,13 +1,23 @@
-.sqs-stage { margin: var(--space-4) 0 var(--space-2); }
+.sqs-stage { margin: var(--space-6) 0 var(--space-4); }
 .sqs-lane { display: flex; align-items: stretch; gap: var(--space-3); }
-.sqs-box { flex: 1; min-height: 84px; border: 1px dashed var(--color-secondary); border-radius: 12px; padding: var(--space-2) var(--space-3); }
-.sqs-box-label { font-size: var(--text-xs); font-family: var(--font-mono); color: var(--color-text-soft); text-transform: uppercase; }
-.sqs-arrow { align-self: center; color: var(--color-secondary); font-size: var(--text-xl); }
-.sqs-slots, .sqs-processing { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-top: var(--space-2); }
-.sqs-msg { width: 22px; height: 22px; border-radius: 6px; background: var(--color-secondary); display: grid; place-items: center; color: var(--color-card); font-size: 10px; font-family: var(--font-mono); transition: background var(--transition), transform var(--transition); }
+.sqs-box {
+  flex: 1; min-height: 96px;
+  border: 1px solid var(--color-border); background: rgba(245, 241, 236, .02);
+  border-radius: 14px; padding: var(--space-3);
+}
+.sqs-box-label { font-size: var(--text-xs); font-family: var(--font-mono); color: var(--color-text-dim); text-transform: uppercase; letter-spacing: .08em; }
+.sqs-arrow { align-self: center; color: var(--color-text-dim); font-size: var(--text-xl); }
+.sqs-slots, .sqs-processing { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-3); }
+.sqs-msg {
+  width: 24px; height: 24px; border-radius: 7px;
+  background: var(--color-secondary); display: grid; place-items: center;
+  color: #14110F; font-size: 11px; font-weight: 600; font-family: var(--font-mono);
+  transition: background var(--transition), transform var(--transition);
+}
 .sqs-msg.retry { background: var(--color-warning); }
 .sqs-msg.pop { transform: scale(1.15); }
-.sqs-counters { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: var(--text-sm); flex-wrap: wrap; }
+.sqs-counters { display: flex; gap: var(--space-5); margin-top: var(--space-5); font-size: var(--text-sm); flex-wrap: wrap; }
+.sqs-counter { color: var(--color-text-soft); }
 .sqs-counter.ok b { color: var(--color-success); }
 .sqs-counter.warn b { color: var(--color-warning); }
 .sqs-counter.danger b { color: var(--color-danger); }

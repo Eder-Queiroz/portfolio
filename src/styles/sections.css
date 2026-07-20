@@ -1,10 +1,48 @@
-.wins-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
-.win { display: flex; align-items: center; gap: var(--space-3); }
-.win-medal { font-size: var(--text-xl); }
-.timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
-.timeline-item { border-left: 3px solid var(--color-primary); padding-left: var(--space-4); }
-.timeline-head { display: flex; justify-content: space-between; gap: var(--space-2); flex-wrap: wrap; }
-.timeline-role { font-weight: 600; margin: var(--space-1) 0; }
-.contact-actions { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; margin-top: var(--space-3); }
-.contact-actions .chip { text-decoration: none; }
-@media (max-width: 900px) { .timeline { grid-template-columns: 1fr; } }
+/* Conquistas */
+.wins-list {
+  list-style: none; padding: 0; margin: var(--space-4) 0 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);
+}
+.win {
+  display: flex; gap: var(--space-3); align-items: flex-start;
+  padding: var(--space-5);
+  background: var(--color-card); border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.win-medal { font-size: var(--text-2xl); line-height: 1; }
+.win b { display: block; font-size: var(--text-lg); margin-bottom: 2px; }
+.win .muted { font-size: var(--text-sm); }
+
+/* Trajetória — timeline vertical */
+.timeline { list-style: none; margin: var(--space-4) 0 0; padding: 0; position: relative; }
+.timeline::before {
+  content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px;
+  background: linear-gradient(var(--color-primary), transparent);
+}
+.timeline-item { position: relative; padding: 0 0 var(--space-8) var(--space-8); }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px;
+  border-radius: 50%; background: var(--color-bg); border: 2px solid var(--color-primary);
+}
+.timeline-head { display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; align-items: baseline; }
+.timeline-head b { font-size: var(--text-lg); }
+.timeline-role { font-weight: 600; color: var(--color-primary); margin: var(--space-1) 0; }
+.timeline-item .muted { font-size: var(--text-sm); }
+
+/* Contato */
+.contact { text-align: center; }
+.contact .kicker { justify-content: center; }
+.contact-title {
+  font-size: var(--text-3xl); font-weight: 800; letter-spacing: -.03em;
+  max-width: 18ch; margin: 0 auto var(--space-4);
+}
+.contact .lead { margin-inline: auto; }
+.contact-actions { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; justify-content: center; margin-top: var(--space-6); }
+.contact-actions .chip, .contact-actions .btn-primary { text-decoration: none; }
+
+/* Rodapé */
+.site-footer { border-top: 1px solid var(--color-border); }
+.site-footer p { padding-block: var(--space-6); margin: 0; color: var(--color-text-soft); font-size: var(--text-sm); }
+
+@media (max-width: 720px) { .wins-list { grid-template-columns: 1fr; } }

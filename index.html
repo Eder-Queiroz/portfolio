@@ -3,132 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfólio de Eder Queiroz: backend Node.js/NestJS, AWS, Flutter. Sistemas confiáveis e escaláveis — com os cases ilustrados ao vivo." />
+    <meta name="description" content="Eder Queiroz — engenheiro de software. Backend confiável e escalável com Node.js, NestJS e AWS. Veja os sistemas que construí, animados ao vivo." />
     <title>Eder Queiroz — Engenheiro de Software</title>
     <link rel="canonical" href="https://ederqueiroz.dev.br/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0F0E0D" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ederqueiroz.dev.br/" />
     <meta property="og:title" content="Eder Queiroz — Engenheiro de Software" />
-    <meta property="og:description" content="Sistemas confiáveis e escaláveis: Node.js, NestJS, AWS, Flutter — cases ilustrados ao vivo." />
+    <meta property="og:description" content="Backend confiável e escalável: Node.js, NestJS e AWS. Cases animados ao vivo." />
     <meta property="og:image" content="https://ederqueiroz.dev.br/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>document.documentElement.classList.add('js')</script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand mono" href="#top">eder<span class="brand-accent">queiroz</span></a>
-      <nav class="site-nav">
-        <a href="#about" data-i18n="nav.about"></a>
-        <a href="#cases" data-i18n="nav.cases"></a>
-        <a href="#experience" data-i18n="nav.experience"></a>
-        <a href="#contact" data-i18n="nav.contact"></a>
-      </nav>
-      <button id="lang-toggle" class="chip" type="button" aria-label="Switch language">
-        <span data-i18n="lang.toggle"></span>
-      </button>
+      <div class="container site-header__inner">
+        <a class="brand" href="#top">eder<span class="brand-accent">queiroz</span></a>
+        <nav class="site-nav">
+          <a href="#about" data-i18n="nav.about">Sobre</a>
+          <a href="#cases" data-i18n="nav.cases">Cases</a>
+          <a href="#experience" data-i18n="nav.experience">Trajetória</a>
+          <a href="#contact" data-i18n="nav.contact">Contato</a>
+        </nav>
+        <button id="lang-toggle" class="chip lang-toggle" type="button" aria-label="Alternar idioma">
+          <span data-i18n="lang.toggle">EN</span>
+        </button>
+      </div>
     </header>
-    <main id="top" class="bento-grid">
-      <section class="card card--full hero">
-        <p class="hero-hello" data-i18n="hero.hello"></p>
-        <h1 class="hero-roles mono" aria-live="off"><span id="typing"></span><span class="caret" aria-hidden="true"></span></h1>
-        <p class="hero-tagline" data-i18n="hero.tagline"></p>
-        <p class="muted" data-i18n="hero.location"></p>
-        <a class="btn-primary" href="#contact" data-i18n="hero.cta"></a>
-      </section>
-      <section id="about" class="card card--span2">
-        <h2 data-i18n="about.title"></h2>
-        <p data-i18n="about.body"></p>
-      </section>
-      <section id="skills" class="card card--span2">
-        <h2 data-i18n="skills.title"></h2>
-        <p class="muted" data-i18n="skills.hint"></p>
-        <ul class="skill-list" role="list">
-          <li><button class="chip" data-skill="node">Node.js</button></li>
-          <li><button class="chip" data-skill="nest">NestJS</button></li>
-          <li><button class="chip" data-skill="aws">AWS</button></li>
-          <li><button class="chip" data-skill="sqs">SQS</button></li>
-          <li><button class="chip" data-skill="flutter">Flutter</button></li>
-          <li><button class="chip" data-skill="dart">Dart</button></li>
-          <li><button class="chip" data-skill="react">React / Next.js</button></li>
-          <li><button class="chip" data-skill="postgres">PostgreSQL</button></li>
-        </ul>
-      </section>
-      <section id="cases" class="card card--full cases-intro">
-        <h2 data-i18n="cases.title"></h2>
-        <p class="muted" data-i18n="cases.subtitle"></p>
-      </section>
-      <section id="ledger-case" class="card card--span2">
-        <h3 data-i18n="ledger.title"></h3>
-        <p data-i18n="ledger.desc"></p>
-        <div class="ledger-stage" aria-hidden="true"></div>
-        <p class="mono ledger-count" aria-hidden="true"></p>
-        <p class="metric" data-i18n="ledger.metric"></p>
-      </section>
-      <section id="sqs-case" class="card card--span2">
-        <h3 data-i18n="sqs.title"></h3>
-        <p data-i18n="sqs.desc"></p>
-        <div class="sqs-stage" aria-hidden="true">
-          <div class="sqs-lane">
-            <div class="sqs-box sqs-queue"><span class="sqs-box-label" data-i18n="sqs.queue"></span><div class="sqs-slots"></div></div>
-            <div class="sqs-arrow mono">→</div>
-            <div class="sqs-box sqs-consumer"><span class="sqs-box-label" data-i18n="sqs.consumer"></span><div class="sqs-processing"></div></div>
-          </div>
-          <div class="sqs-counters mono">
-            <span class="sqs-counter ok">✓ <b class="c-delivered">0</b> <span data-i18n="sqs.delivered"></span></span>
-            <span class="sqs-counter warn">↻ <b class="c-retried">0</b> <span data-i18n="sqs.retried"></span></span>
-            <span class="sqs-counter danger">☠ <b class="c-dlq">0</b> <span data-i18n="sqs.dlq"></span></span>
-          </div>
-        </div>
-        <p class="metric" data-i18n="sqs.metric"></p>
-      </section>
-      <section id="ga-case" class="card card--span2">
-        <h3 data-i18n="ga.title"></h3>
-        <p data-i18n="ga.desc"></p>
-        <canvas class="ga-canvas" width="440" height="200" aria-hidden="true"></canvas>
-        <div class="ga-bar">
-          <span class="mono ga-status" aria-live="polite"></span>
-          <button class="chip ga-restart" type="button" data-i18n="ga.restart"></button>
+
+    <main>
+      <section id="top" class="hero container">
+        <p class="kicker" data-i18n="hero.kicker">Engenheiro de software · Uberaba, BR</p>
+        <h1 class="hero-title" data-i18n="hero.headline">Eu construo o que fica invisível quando dá certo.</h1>
+        <p class="hero-roles">
+          <span class="prompt mono" aria-hidden="true">~$</span>
+          <span id="typing" class="mono">Backend confiável</span><span class="caret" aria-hidden="true"></span>
+        </p>
+        <p class="hero-support" data-i18n="hero.support">Notificações que sempre chegam. Saldos que nunca são resgatados duas vezes. Filas que aguentam a carga.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact" data-i18n="hero.cta">Vamos conversar</a>
+          <a class="btn-ghost" href="#cases" data-i18n="hero.cta2">Ver os cases</a>
         </div>
       </section>
-      <section id="wins" class="card card--span2">
-        <h2 data-i18n="wins.title"></h2>
-        <ul class="wins-list" role="list">
-          <li class="win"><span class="win-medal" aria-hidden="true">🥇</span><div><b data-i18n="wins.hack1"></b> <span class="muted" data-i18n="wins.hack1.desc"></span></div></li>
-          <li class="win"><span class="win-medal" aria-hidden="true">🥉</span><div><b data-i18n="wins.hack3"></b> <span class="muted" data-i18n="wins.hack3.desc"></span></div></li>
-          <li class="win"><span class="win-medal" aria-hidden="true">🏅</span><div><b data-i18n="wins.honor"></b> <span class="muted" data-i18n="wins.honor.desc"></span></div></li>
+
+      <section id="about" class="section container">
+        <p class="kicker" data-reveal data-i18n="about.kicker">01 — Sobre</p>
+        <h2 class="section-title" data-reveal data-i18n="about.title">Gosto dos problemas que só aparecem quando algo falha.</h2>
+        <p class="lead" data-reveal data-i18n="about.body">Me chamam de Edim. Sou desenvolvedor full stack na Grão Direto — concorrência, entrega garantida e consistência sob carga são o meu tipo de diversão. Termino Engenharia de Computação no IFTM em 2026 e mantenho um pé na pesquisa. Pra mim, um bom dia é quando o sistema aguenta a pressão e ninguém percebe.</p>
+      </section>
+
+      <section id="skills" class="section container">
+        <p class="kicker" data-reveal data-i18n="skills.kicker">02 — Stack</p>
+        <h2 class="section-title" data-reveal data-i18n="skills.title">As ferramentas — e onde cada uma entrou em campo.</h2>
+        <p class="lead" data-reveal data-i18n="skills.hint">Passe o mouse ou toque em cada uma para ver o caso real.</p>
+        <div class="skill-groups" data-reveal>
+          <div class="skill-group">
+            <span class="skill-group__label" data-i18n="skills.group.backend">Backend</span>
+            <ul class="skill-list" role="list">
+              <li><button class="chip" data-skill="node">Node.js</button></li>
+              <li><button class="chip" data-skill="nest">NestJS</button></li>
+              <li><button class="chip" data-skill="postgres">PostgreSQL</button></li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <span class="skill-group__label" data-i18n="skills.group.cloud">Cloud &amp; mensageria</span>
+            <ul class="skill-list" role="list">
+              <li><button class="chip" data-skill="aws">AWS</button></li>
+              <li><button class="chip" data-skill="sqs">SQS</button></li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <span class="skill-group__label" data-i18n="skills.group.mobile">Mobile</span>
+            <ul class="skill-list" role="list">
+              <li><button class="chip" data-skill="flutter">Flutter</button></li>
+              <li><button class="chip" data-skill="dart">Dart</button></li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <span class="skill-group__label" data-i18n="skills.group.front">Front-end</span>
+            <ul class="skill-list" role="list">
+              <li><button class="chip" data-skill="react">React / Next.js</button></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" class="section container">
+        <p class="kicker" data-reveal data-i18n="cases.kicker">03 — Cases</p>
+        <h2 class="section-title" data-reveal data-i18n="cases.title">Três problemas reais, animados ao vivo.</h2>
+        <p class="lead" data-reveal data-i18n="cases.subtitle">Cada um é um problema que resolvi em produção. Deixei rodando para você ver a ideia funcionando.</p>
+        <div class="cases-grid" data-reveal>
+          <article id="ledger-case" class="card case">
+            <h3 data-i18n="ledger.title">Saldo que nunca é resgatado duas vezes</h3>
+            <p class="muted" data-i18n="ledger.desc">O saldo de pontos é um ledger de lotes com expiração, não um contador. Consumo FIFO (os mais antigos primeiro) e rastreabilidade total. Sob concorrência, um lock pessimista no banco acabou com os resgates em dobro.</p>
+            <div class="ledger-stage" aria-hidden="true"></div>
+            <p class="mono ledger-count" aria-hidden="true"></p>
+            <p class="metric" data-i18n="ledger.metric">250+ resgates no 1º trimestre</p>
+          </article>
+          <article id="sqs-case" class="card case">
+            <h3 data-i18n="sqs.title">A fila que entrega 100%</h3>
+            <p class="muted" data-i18n="sqs.desc">O rate limit do Twilio derrubava notificações. Uma fila FIFO no AWS SQS serializa os envios: falha transitória volta pra fila, falha permanente é descartada e, esgotadas as tentativas, a mensagem cai numa DLQ com redrive controlado.</p>
+            <div class="sqs-stage" aria-hidden="true">
+              <div class="sqs-lane">
+                <div class="sqs-box sqs-queue"><span class="sqs-box-label" data-i18n="sqs.queue">fila FIFO</span><div class="sqs-slots"></div></div>
+                <div class="sqs-arrow mono">→</div>
+                <div class="sqs-box sqs-consumer"><span class="sqs-box-label" data-i18n="sqs.consumer">consumidor</span><div class="sqs-processing"></div></div>
+              </div>
+              <div class="sqs-counters mono">
+                <span class="sqs-counter ok">✓ <b class="c-delivered">0</b> <span data-i18n="sqs.delivered">entregues</span></span>
+                <span class="sqs-counter warn">↻ <b class="c-retried">0</b> <span data-i18n="sqs.retried">retries</span></span>
+                <span class="sqs-counter danger">☠ <b class="c-dlq">0</b> <span data-i18n="sqs.dlq">DLQ</span></span>
+              </div>
+            </div>
+            <p class="metric" data-i18n="sqs.metric">100% de entrega · zero erros de rate limit</p>
+          </article>
+          <article id="ga-case" class="card case case--wide">
+            <h3 data-i18n="ga.title">Grade horária que se resolve sozinha</h3>
+            <p class="muted" data-i18n="ga.desc">O projeto que me rendeu aluno destaque no IFTM: geração de grade horária com algoritmos genéticos. Esta miniatura evolui ao vivo até zerar os conflitos — um professor em duas aulas no mesmo horário.</p>
+            <canvas class="ga-canvas" width="440" height="200" aria-hidden="true"></canvas>
+            <div class="ga-bar">
+              <span class="mono ga-status"></span>
+              <button class="chip ga-restart" type="button" data-i18n="ga.restart">Evoluir de novo</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="wins" class="section container">
+        <p class="kicker" data-reveal data-i18n="wins.kicker">04 — Conquistas</p>
+        <ul class="wins-list">
+          <li class="win" data-reveal><span class="win-medal" aria-hidden="true">🥇</span><div><b data-i18n="wins.hack1">1º lugar</b><span class="muted" data-i18n="wins.hack1.desc">Hackathon</span></div></li>
+          <li class="win" data-reveal><span class="win-medal" aria-hidden="true">🥉</span><div><b data-i18n="wins.hack3">3º lugar</b><span class="muted" data-i18n="wins.hack3.desc">Hackathon</span></div></li>
+          <li class="win" data-reveal><span class="win-medal" aria-hidden="true">🏅</span><div><b data-i18n="wins.honor">Aluno destaque</b><span class="muted" data-i18n="wins.honor.desc">IFTM · projeto de grade horária com algoritmos genéticos</span></div></li>
         </ul>
       </section>
-      <section id="experience" class="card card--full">
-        <h2 data-i18n="exp.title"></h2>
+
+      <section id="experience" class="section container">
+        <p class="kicker" data-reveal data-i18n="exp.kicker">05 — Trajetória</p>
+        <h2 class="section-title" data-reveal data-i18n="exp.title">Trajetória</h2>
         <ol class="timeline" role="list">
-          <li class="timeline-item">
-            <div class="timeline-head"><b data-i18n="exp.gd.company"></b><span class="mono muted" data-i18n="exp.gd.period"></span></div>
-            <p class="timeline-role" data-i18n="exp.gd.role"></p>
-            <p class="muted" data-i18n="exp.gd.desc"></p>
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-head"><b data-i18n="exp.gd.company">Grão Direto</b><span class="mono muted" data-i18n="exp.gd.period">fev/2024 — hoje</span></div>
+            <p class="timeline-role" data-i18n="exp.gd.role">Desenvolvedor full stack</p>
+            <p class="muted" data-i18n="exp.gd.desc">Do backend ao mobile: o sistema de fidelidade (ledger), as filas SQS, validação facial e testes A/B que subiram a conversão do cadastro em 12%.</p>
           </li>
-          <li class="timeline-item">
-            <div class="timeline-head"><b data-i18n="exp.bw.company"></b><span class="mono muted" data-i18n="exp.bw.period"></span></div>
-            <p class="timeline-role" data-i18n="exp.bw.role"></p>
-            <p class="muted" data-i18n="exp.bw.desc"></p>
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-head"><b data-i18n="exp.bw.company">bugWare</b><span class="mono muted" data-i18n="exp.bw.period">mar/2022 — fev/2024</span></div>
+            <p class="timeline-role" data-i18n="exp.bw.role">Líder técnico</p>
+            <p class="muted" data-i18n="exp.bw.desc">Empresa júnior do IFTM. Liderei o time técnico em projetos sob demanda — arquitetura, código e mentoria dos novatos.</p>
           </li>
-          <li class="timeline-item">
-            <div class="timeline-head"><b data-i18n="exp.edu.company"></b><span class="mono muted" data-i18n="exp.edu.period"></span></div>
-            <p class="timeline-role" data-i18n="exp.edu.role"></p>
-            <p class="muted" data-i18n="exp.edu.desc"></p>
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-head"><b data-i18n="exp.edu.company">IFTM</b><span class="mono muted" data-i18n="exp.edu.period">conclusão dez/2026</span></div>
+            <p class="timeline-role" data-i18n="exp.edu.role">Engenharia de Computação</p>
+            <p class="muted" data-i18n="exp.edu.desc">Pesquisa em otimização com algoritmos genéticos e hackathons no currículo.</p>
           </li>
         </ol>
       </section>
-      <section id="contact" class="card card--full contact">
-        <h2 data-i18n="contact.title"></h2>
-        <p data-i18n="contact.body"></p>
-        <div class="contact-actions">
-          <a class="btn-primary" href="mailto:ederjuniodesouzaqueiroz@gmail.com" data-i18n="contact.cta"></a>
+
+      <section id="contact" class="section container contact">
+        <p class="kicker" data-reveal data-i18n="contact.kicker">06 — Contato</p>
+        <h2 class="contact-title" data-reveal data-i18n="contact.title">Vamos construir algo que não cai?</h2>
+        <p class="lead" data-reveal data-i18n="contact.body">Backend, agtech, um problema cabeludo de concorrência ou só uma boa ideia. Manda mensagem — vai ser um prazer.</p>
+        <div class="contact-actions" data-reveal>
+          <a class="btn-primary" href="mailto:ederjuniodesouzaqueiroz@gmail.com" data-i18n="contact.cta">Enviar e-mail</a>
           <a class="chip" href="https://www.linkedin.com/in/ederqueirozdev" target="_blank" rel="noopener">LinkedIn</a>
           <a class="chip" href="https://github.com/Eder-Queiroz" target="_blank" rel="noopener">GitHub</a>
         </div>
       </section>
     </main>
-    <footer class="site-footer muted"><p data-i18n="footer.built"></p></footer>
+
+    <footer class="site-footer">
+      <div class="container"><p data-i18n="footer.built">Feito à mão com HTML, CSS e JS. Sem framework.</p></div>
+    </footer>
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
