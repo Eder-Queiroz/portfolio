@@ -7,16 +7,16 @@
   "nav.experience": "Trajetória",
   "nav.contact": "Contato",
 
-  "hero.kicker": "Engenheiro de software · Uberaba, BR",
-  "hero.headline": "Eu construo o que fica invisível quando dá certo.",
+  "hero.kicker": "Grão Direto · Uberaba, BR",
+  "hero.headline": "Desenvolvedor full stack.",
   "hero.roles": ["Backend confiável", "Node.js & NestJS", "Flutter & Dart", "React & Next.js", "Sistemas distribuídos"],
-  "hero.support": "Notificações que sempre chegam. Saldos que nunca são resgatados duas vezes. Filas que aguentam a carga.",
+  "hero.support": "Do backend ao mobile — Node.js, NestJS, AWS e Flutter —, com foco em confiabilidade e consistência sob carga.",
   "hero.cta": "Vamos conversar",
   "hero.cta2": "Ver os cases",
 
   "about.kicker": "01 — Sobre",
-  "about.title": "Gosto dos problemas que só aparecem quando algo falha.",
-  "about.body": "Me chamam de Edim. Sou desenvolvedor full stack na Grão Direto — concorrência, entrega garantida e consistência sob carga são o meu tipo de diversão. Termino Engenharia de Computação no IFTM em 2026 e mantenho um pé na pesquisa. Pra mim, um bom dia é quando o sistema aguenta a pressão e ninguém percebe.",
+  "about.title": "Full stack na Grão Direto, com um pé na pesquisa.",
+  "about.body": "Sou o Eder. Trabalho full stack na Grão Direto, onde passo a maior parte do tempo no backend — concorrência, entrega de mensagens e consistência sob carga. Termino Engenharia de Computação no IFTM em 2026 e gosto de manter um pé na pesquisa, de algoritmos genéticos a hackathons.",
 
   "skills.kicker": "02 — Stack",
   "skills.title": "As ferramentas — e onde cada uma entrou em campo.",
@@ -39,14 +39,14 @@
   "cases.subtitle": "Cada um é um problema que resolvi em produção. Deixei rodando para você ver a ideia funcionando.",
 
   "ledger.title": "Saldo que nunca é resgatado duas vezes",
-  "ledger.desc": "O saldo de pontos é um ledger de lotes com expiração, não um contador. Consumo FIFO (os mais antigos primeiro) e rastreabilidade total. Sob concorrência, um lock pessimista no banco acabou com os resgates em dobro.",
+  "ledger.desc": "A Grão Direto tem um programa de fidelidade: o produtor acumula pontos e troca por prêmios. Cada lote de pontos expira numa data, e o resgate precisa consumir sempre os mais antigos primeiro — então modelei o saldo como um ledger de lotes (FIFO), não um contador. Sob concorrência, dois resgates simultâneos liam o mesmo saldo e passavam os dois; um lock pessimista no banco acabou com os resgates em dobro.",
   "ledger.metric": "250+ resgates no 1º trimestre",
   "ledger.batch": "Lote",
   "ledger.expires": "expira",
   "ledger.redeemed": "pts resgatados",
 
   "sqs.title": "A fila que entrega 100%",
-  "sqs.desc": "O rate limit do Twilio derrubava notificações. Uma fila FIFO no AWS SQS serializa os envios: falha transitória volta pra fila, falha permanente é descartada e, esgotadas as tentativas, a mensagem cai numa DLQ com redrive controlado.",
+  "sqs.desc": "A plataforma envia notificações por SMS e WhatsApp via Twilio. Em picos, a API batia no rate limit e derrubava mensagens — o usuário simplesmente não recebia. Coloquei uma fila FIFO no AWS SQS entre a aplicação e o Twilio: falha transitória (429, timeout, 5xx) volta pra fila, falha permanente é descartada e o que esgota as tentativas cai numa DLQ com redrive controlado.",
   "sqs.metric": "100% de entrega · zero erros de rate limit",
   "sqs.queue": "fila FIFO",
   "sqs.consumer": "consumidor",
@@ -56,7 +56,8 @@
   "sqs.discarded": "descartadas",
 
   "ga.title": "Grade horária que se resolve sozinha",
-  "ga.desc": "O projeto que me rendeu aluno destaque no IFTM: geração de grade horária com algoritmos genéticos. Esta miniatura evolui ao vivo até zerar os conflitos — um professor em duas aulas no mesmo horário.",
+  "ga.desc": "Montar a grade horária de um curso à mão é um quebra-cabeça: turmas, professores e salas que não podem se sobrepor. No meu projeto de pesquisa no IFTM, ataquei isso com algoritmos genéticos — em vez de testar todas as combinações, a solução evolui geração após geração até acabar com os conflitos. Aqui ao vivo: cada célula é uma aula e o vermelho marca um professor em dois horários ao mesmo tempo.",
+  "ga.days": ["Seg", "Ter", "Qua", "Qui", "Sex"],
   "ga.generation": "geração",
   "ga.conflicts": "conflitos",
   "ga.restart": "Evoluir de novo",

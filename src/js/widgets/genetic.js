@@ -1,12 +1,15 @@
 import { t, onLangChange } from '../i18n.js'
 import { prefersReducedMotion } from '../utils.js'
 
-const DAYS = 5, PERIODS = 4, TEACHERS = 6, CELLS = DAYS * PERIODS
-// Cores de professor — espelham os tokens (secondary, primary, success, warning
-// + dois tons de apoio). Nenhuma é vermelha: o vermelho é exclusivo do conflito.
+// 5 professores para 4 períodos deixa o problema mais apertado: o estado inicial
+// costuma ter conflitos visíveis que a evolução vai resolvendo ao vivo.
+const DAYS = 5, PERIODS = 4, TEACHERS = 5, CELLS = DAYS * PERIODS
+// Cores de professor — pastéis que contrastam com o fundo escuro. Nenhuma é
+// vermelha: o vermelho é exclusivo do conflito.
 const COLORS = ['#80A1C1', '#FAD4C0', '#34D399', '#FBBF24', '#C4B5FD', '#A8A29B']
-const CONFLICT = '#F87171' // = --color-danger
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
+// genoma[i], com i = dia * PERIODS + período  → índice do professor naquela aula
 const conflicts = (g) => {
   let c = 0
   for (let d = 0; d < DAYS; d++) {
@@ -19,13 +22,37 @@ const conflicts = (g) => {
   }
   return c
 }
+const bestOf = (pop) => pop.reduce((a, b) => (conflicts(a) <= conflicts(b) ? a : b))
 const randomGenome = () => Array.from({ length: CELLS }, () => Math.floor(Math.random() * TEACHERS))
 
 export function initGeneticWidget(root) {
-  const canvas = root.querySelector('.ga-canvas')
-  const ctx = canvas.getContext('2d')
+  const grid = root.querySelector('.ga-grid')
   const status = root.querySelector('.ga-status')
   let pop, gen, timer
+  let cells = []
+
+  const buildGrid = () => {
+    grid.innerHTML = ''
+    cells = []
+    grid.appendChild(document.createElement('div')) // canto vazio
+    const days = t('ga.days')
+    for (let d = 0; d < DAYS; d++) {
+      const h = document.createElement('div')
+      h.className = 'ga-h'; h.textContent = days[d]
+      grid.appendChild(h)
+    }
+    for (let p = 0; p < PERIODS; p++) {
+      const rl = document.createElement('div')
+      rl.className = 'ga-rowlabel'; rl.textContent = `${p + 1}º`
+      grid.appendChild(rl)
+      for (let d = 0; d < DAYS; d++) {
+        const c = document.createElement('div')
+        c.className = 'ga-cell'
+        grid.appendChild(c)
+        cells[d * PERIODS + p] = c
+      }
+    }
+  }
 
   const step = () => {
     pop.sort((a, b) => conflicts(a) - conflicts(b))
@@ -49,10 +76,8 @@ export function initGeneticWidget(root) {
   }
 
   const draw = () => {
-    const best = pop.reduce((a, b) => (conflicts(a) <= conflicts(b) ? a : b))
+    const best = bestOf(pop)
     const c = conflicts(best)
-    const w = canvas.width / DAYS, h = canvas.height / PERIODS
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
     for (let d = 0; d < DAYS; d++) {
       const counts = {}
       for (let p = 0; p < PERIODS; p++) {
@@ -61,14 +86,10 @@ export function initGeneticWidget(root) {
       }
       for (let p = 0; p < PERIODS; p++) {
         const teach = best[d * PERIODS + p]
-        ctx.fillStyle = COLORS[teach]
-        ctx.beginPath()
-        ctx.roundRect(d * w + 3, p * h + 3, w - 6, h - 6, 6)
-        ctx.fill()
-        if (counts[teach] > 1) { // marca AMBAS as células em conflito no dia
-          ctx.strokeStyle = CONFLICT; ctx.lineWidth = 3
-          ctx.stroke()
-        }
+        const cell = cells[d * PERIODS + p]
+        cell.style.backgroundColor = COLORS[teach]
+        cell.textContent = LETTERS[teach]
+        cell.classList.toggle('conflict', counts[teach] > 1) // marca AMBAS as células do conflito
       }
     }
     status.textContent = c === 0
@@ -81,15 +102,16 @@ export function initGeneticWidget(root) {
     clearInterval(timer)
     pop = Array.from({ length: 40 }, randomGenome); gen = 0
     if (prefersReducedMotion()) {
-      while (gen < 5000 && conflicts(pop.reduce((a,b)=>conflicts(a)<=conflicts(b)?a:b)) > 0) step()
+      while (gen < 5000 && conflicts(bestOf(pop)) > 0) step()
       draw()
       return
     }
     draw()
-    timer = setInterval(() => { if (draw() === 0) clearInterval(timer); else step() }, 90)
+    timer = setInterval(() => { if (draw() === 0) clearInterval(timer); else step() }, 130)
   }
 
+  buildGrid()
   root.querySelector('.ga-restart').addEventListener('click', start)
-  onLangChange(() => draw())
+  onLangChange(() => { buildGrid(); draw() }) // reconstrói os rótulos de dia e repinta
   start()
 }

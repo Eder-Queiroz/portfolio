@@ -34,13 +34,13 @@
 
     <main>
       <section id="top" class="hero container">
-        <p class="kicker" data-i18n="hero.kicker">Engenheiro de software · Uberaba, BR</p>
-        <h1 class="hero-title" data-i18n="hero.headline">Eu construo o que fica invisível quando dá certo.</h1>
+        <p class="kicker" data-i18n="hero.kicker">Grão Direto · Uberaba, BR</p>
+        <h1 class="hero-title" data-i18n="hero.headline">Desenvolvedor full stack.</h1>
         <p class="hero-roles">
           <span class="prompt mono" aria-hidden="true">~$</span>
           <span id="typing" class="mono">Backend confiável</span><span class="caret" aria-hidden="true"></span>
         </p>
-        <p class="hero-support" data-i18n="hero.support">Notificações que sempre chegam. Saldos que nunca são resgatados duas vezes. Filas que aguentam a carga.</p>
+        <p class="hero-support" data-i18n="hero.support">Do backend ao mobile — Node.js, NestJS, AWS e Flutter —, com foco em confiabilidade e consistência sob carga.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#contact" data-i18n="hero.cta">Vamos conversar</a>
           <a class="btn-ghost" href="#cases" data-i18n="hero.cta2">Ver os cases</a>
@@ -49,8 +49,8 @@
 
       <section id="about" class="section container">
         <p class="kicker" data-reveal data-i18n="about.kicker">01 — Sobre</p>
-        <h2 class="section-title" data-reveal data-i18n="about.title">Gosto dos problemas que só aparecem quando algo falha.</h2>
-        <p class="lead" data-reveal data-i18n="about.body">Me chamam de Edim. Sou desenvolvedor full stack na Grão Direto — concorrência, entrega garantida e consistência sob carga são o meu tipo de diversão. Termino Engenharia de Computação no IFTM em 2026 e mantenho um pé na pesquisa. Pra mim, um bom dia é quando o sistema aguenta a pressão e ninguém percebe.</p>
+        <h2 class="section-title" data-reveal data-i18n="about.title">Full stack na Grão Direto, com um pé na pesquisa.</h2>
+        <p class="lead" data-reveal data-i18n="about.body">Sou o Eder. Trabalho full stack na Grão Direto, onde passo a maior parte do tempo no backend — concorrência, entrega de mensagens e consistência sob carga. Termino Engenharia de Computação no IFTM em 2026 e gosto de manter um pé na pesquisa, de algoritmos genéticos a hackathons.</p>
       </section>
 
       <section id="skills" class="section container">
@@ -96,14 +96,14 @@
         <div class="cases-grid" data-reveal>
           <article id="ledger-case" class="card case">
             <h3 data-i18n="ledger.title">Saldo que nunca é resgatado duas vezes</h3>
-            <p class="muted" data-i18n="ledger.desc">O saldo de pontos é um ledger de lotes com expiração, não um contador. Consumo FIFO (os mais antigos primeiro) e rastreabilidade total. Sob concorrência, um lock pessimista no banco acabou com os resgates em dobro.</p>
+            <p class="muted" data-i18n="ledger.desc">A Grão Direto tem um programa de fidelidade: o produtor acumula pontos e troca por prêmios. Cada lote de pontos expira numa data, e o resgate precisa consumir sempre os mais antigos primeiro — então modelei o saldo como um ledger de lotes (FIFO), não um contador. Sob concorrência, dois resgates simultâneos liam o mesmo saldo e passavam os dois; um lock pessimista no banco acabou com os resgates em dobro.</p>
             <div class="ledger-stage" aria-hidden="true"></div>
             <p class="mono ledger-count" aria-hidden="true"></p>
             <p class="metric" data-i18n="ledger.metric">250+ resgates no 1º trimestre</p>
           </article>
           <article id="sqs-case" class="card case">
             <h3 data-i18n="sqs.title">A fila que entrega 100%</h3>
-            <p class="muted" data-i18n="sqs.desc">O rate limit do Twilio derrubava notificações. Uma fila FIFO no AWS SQS serializa os envios: falha transitória volta pra fila, falha permanente é descartada e, esgotadas as tentativas, a mensagem cai numa DLQ com redrive controlado.</p>
+            <p class="muted" data-i18n="sqs.desc">A plataforma envia notificações por SMS e WhatsApp via Twilio. Em picos, a API batia no rate limit e derrubava mensagens — o usuário simplesmente não recebia. Coloquei uma fila FIFO no AWS SQS entre a aplicação e o Twilio: falha transitória (429, timeout, 5xx) volta pra fila, falha permanente é descartada e o que esgota as tentativas cai numa DLQ com redrive controlado.</p>
             <div class="sqs-stage" aria-hidden="true">
               <div class="sqs-lane">
                 <div class="sqs-box sqs-queue"><span class="sqs-box-label" data-i18n="sqs.queue">fila FIFO</span><div class="sqs-slots"></div></div>
@@ -120,8 +120,8 @@
           </article>
           <article id="ga-case" class="card case case--wide">
             <h3 data-i18n="ga.title">Grade horária que se resolve sozinha</h3>
-            <p class="muted" data-i18n="ga.desc">O projeto que me rendeu aluno destaque no IFTM: geração de grade horária com algoritmos genéticos. Esta miniatura evolui ao vivo até zerar os conflitos — um professor em duas aulas no mesmo horário.</p>
-            <canvas class="ga-canvas" width="440" height="200" aria-hidden="true"></canvas>
+            <p class="muted" data-i18n="ga.desc">Montar a grade horária de um curso à mão é um quebra-cabeça: turmas, professores e salas que não podem se sobrepor. No meu projeto de pesquisa no IFTM, ataquei isso com algoritmos genéticos — em vez de testar todas as combinações, a solução evolui geração após geração até acabar com os conflitos. Aqui ao vivo: cada célula é uma aula e o vermelho marca um professor em dois horários ao mesmo tempo.</p>
+            <div class="ga-grid" aria-hidden="true"></div>
             <div class="ga-bar">
               <span class="mono ga-status"></span>
               <button class="chip ga-restart" type="button" data-i18n="ga.restart">Evoluir de novo</button>

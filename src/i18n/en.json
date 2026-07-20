@@ -7,16 +7,16 @@
   "nav.experience": "Journey",
   "nav.contact": "Contact",
 
-  "hero.kicker": "Software engineer · Uberaba, Brazil",
-  "hero.headline": "I build what stays invisible when it works.",
+  "hero.kicker": "Grão Direto · Uberaba, Brazil",
+  "hero.headline": "Full-stack developer.",
   "hero.roles": ["Reliable backends", "Node.js & NestJS", "Flutter & Dart", "React & Next.js", "Distributed systems"],
-  "hero.support": "Notifications that always arrive. Balances never redeemed twice. Queues that take the load.",
+  "hero.support": "From backend to mobile — Node.js, NestJS, AWS and Flutter — focused on reliability and consistency under load.",
   "hero.cta": "Let's talk",
   "hero.cta2": "See the cases",
 
   "about.kicker": "01 — About",
-  "about.title": "I'm drawn to the problems that only show up when something breaks.",
-  "about.body": "People call me Edim. I'm a full-stack developer at Grão Direto — concurrency, guaranteed delivery and consistency under load are my idea of fun. I finish my Computer Engineering degree at IFTM in 2026 and keep one foot in research. To me, a good day is when the system takes the pressure and nobody notices.",
+  "about.title": "Full-stack at Grão Direto, with one foot in research.",
+  "about.body": "I'm Eder. I work full-stack at Grão Direto, where I spend most of my time on the backend — concurrency, message delivery and consistency under load. I finish my Computer Engineering degree at IFTM in 2026 and like keeping one foot in research, from genetic algorithms to hackathons.",
 
   "skills.kicker": "02 — Stack",
   "skills.title": "The tools — and where each one went into battle.",
@@ -39,14 +39,14 @@
   "cases.subtitle": "Each one is a problem I solved in production. I left them running so you can watch the idea work.",
 
   "ledger.title": "A balance that's never redeemed twice",
-  "ledger.desc": "The points balance is a ledger of expiring batches, not a counter. FIFO consumption (oldest first) and full traceability. Under concurrency, a database-level pessimistic lock ended the double redemptions.",
+  "ledger.desc": "Grão Direto runs a loyalty program: growers earn points and trade them for rewards. Each batch of points expires on a date, and a redemption must always consume the oldest first — so I modeled the balance as a ledger of batches (FIFO), not a counter. Under concurrency, two simultaneous redemptions read the same balance and both went through; a database-level pessimistic lock ended the double redemptions.",
   "ledger.metric": "250+ redemptions in Q1",
   "ledger.batch": "Batch",
   "ledger.expires": "expires",
   "ledger.redeemed": "pts redeemed",
 
   "sqs.title": "The queue that delivers 100%",
-  "sqs.desc": "Twilio's rate limit was dropping notifications. A FIFO queue on AWS SQS serializes sends: transient failures go back to the queue, permanent ones are discarded and, once retries run out, the message lands in a DLQ with controlled redrive.",
+  "sqs.desc": "The platform sends SMS and WhatsApp notifications through Twilio. During spikes, the API hit its rate limit and dropped messages — users simply didn't get them. I put a FIFO queue on AWS SQS between the app and Twilio: transient failures (429, timeout, 5xx) go back to the queue, permanent ones are discarded, and whatever exhausts its retries lands in a DLQ with controlled redrive.",
   "sqs.metric": "100% delivery · zero rate-limit errors",
   "sqs.queue": "FIFO queue",
   "sqs.consumer": "consumer",
@@ -56,7 +56,8 @@
   "sqs.discarded": "discarded",
 
   "ga.title": "A timetable that solves itself",
-  "ga.desc": "The project that earned me honors student at IFTM: timetable generation with genetic algorithms. This miniature evolves live until conflicts hit zero — a teacher in two classes at the same time.",
+  "ga.desc": "Building a course timetable by hand is a puzzle: classes, teachers and rooms that can't overlap. In my research project at IFTM, I tackled it with genetic algorithms — instead of testing every combination, the solution evolves generation after generation until the conflicts are gone. Live here: each cell is a class and red marks a teacher in two slots at once.",
+  "ga.days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "ga.generation": "generation",
   "ga.conflicts": "conflicts",
   "ga.restart": "Evolve again",
