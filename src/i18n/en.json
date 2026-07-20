@@ -39,7 +39,7 @@
   "cases.subtitle": "Each one is a problem I solved in production. I left them running so you can watch the idea work.",
 
   "ledger.title": "A balance that's never redeemed twice",
-  "ledger.desc": "Grão Direto runs a loyalty program: growers earn points and trade them for rewards. Each batch of points expires on a date, and a redemption must always consume the oldest first — so I modeled the balance as a ledger of batches (FIFO), not a counter. Under concurrency, two simultaneous redemptions read the same balance and both went through; a database-level pessimistic lock ended the double redemptions.",
+  "ledger.desc": "I helped build a loyalty program: users earn points and trade them for rewards. Each batch of points expires on a date, and a redemption must always consume the oldest first — so I modeled the balance as a ledger of batches (FIFO), not a counter. Under concurrency, two simultaneous redemptions read the same balance and both went through; a database-level pessimistic lock ended the double redemptions.",
   "ledger.metric": "250+ redemptions in Q1",
   "ledger.batch": "Batch",
   "ledger.expires": "expires",

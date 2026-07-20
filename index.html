@@ -96,7 +96,7 @@
         <div class="cases-grid" data-reveal>
           <article id="ledger-case" class="card case">
             <h3 data-i18n="ledger.title">Saldo que nunca é resgatado duas vezes</h3>
-            <p class="muted" data-i18n="ledger.desc">A Grão Direto tem um programa de fidelidade: o produtor acumula pontos e troca por prêmios. Cada lote de pontos expira numa data, e o resgate precisa consumir sempre os mais antigos primeiro — então modelei o saldo como um ledger de lotes (FIFO), não um contador. Sob concorrência, dois resgates simultâneos liam o mesmo saldo e passavam os dois; um lock pessimista no banco acabou com os resgates em dobro.</p>
+            <p class="muted" data-i18n="ledger.desc">Participei da implementação de um programa de fidelidade: o usuário acumula pontos e troca por prêmios. Cada lote de pontos expira numa data, e o resgate precisa consumir sempre os mais antigos primeiro — então modelei o saldo como um ledger de lotes (FIFO), não um contador. Sob concorrência, dois resgates simultâneos liam o mesmo saldo e passavam os dois; um lock pessimista no banco acabou com os resgates em dobro.</p>
             <div class="ledger-stage" aria-hidden="true"></div>
             <p class="mono ledger-count" aria-hidden="true"></p>
             <p class="metric" data-i18n="ledger.metric">250+ resgates no 1º trimestre</p>

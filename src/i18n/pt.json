@@ -39,7 +39,7 @@
   "cases.subtitle": "Cada um é um problema que resolvi em produção. Deixei rodando para você ver a ideia funcionando.",
 
   "ledger.title": "Saldo que nunca é resgatado duas vezes",
-  "ledger.desc": "A Grão Direto tem um programa de fidelidade: o produtor acumula pontos e troca por prêmios. Cada lote de pontos expira numa data, e o resgate precisa consumir sempre os mais antigos primeiro — então modelei o saldo como um ledger de lotes (FIFO), não um contador. Sob concorrência, dois resgates simultâneos liam o mesmo saldo e passavam os dois; um lock pessimista no banco acabou com os resgates em dobro.",
+  "ledger.desc": "Participei da implementação de um programa de fidelidade: o usuário acumula pontos e troca por prêmios. Cada lote de pontos expira numa data, e o resgate precisa consumir sempre os mais antigos primeiro — então modelei o saldo como um ledger de lotes (FIFO), não um contador. Sob concorrência, dois resgates simultâneos liam o mesmo saldo e passavam os dois; um lock pessimista no banco acabou com os resgates em dobro.",
   "ledger.metric": "250+ resgates no 1º trimestre",
   "ledger.batch": "Lote",
   "ledger.expires": "expira",
