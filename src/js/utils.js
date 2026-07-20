@@ -1,15 +1,21 @@
-import { inView, animate } from 'motion'
-
 export const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-export function revealOnScroll(selector = '.card') {
-  if (prefersReducedMotion()) return
-  document.querySelectorAll(selector).forEach((el) => {
-    el.style.opacity = '0'
-    el.style.transform = 'translateY(12px)'
-    inView(el, () => {
-      animate(el, { opacity: 1, transform: 'translateY(0)' }, { duration: 0.25 })
-    }, { amount: 0.2 })
-  })
+// Reveal via IntersectionObserver + classe CSS (.is-in). Não deixa transform
+// inline no elemento, então o hover-lift dos cards continua funcionando.
+export function revealOnScroll(selector = '[data-reveal]') {
+  const els = document.querySelectorAll(selector)
+  if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('is-in'))
+    return
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in')
+        io.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' })
+  els.forEach((el) => io.observe(el))
 }

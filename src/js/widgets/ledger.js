@@ -20,8 +20,11 @@ export function initLedgerWidget(root) {
       const el = document.createElement('div')
       el.className = `ledger-batch${i === activeIdx ? ' active' : ''}${b.left === 0 ? ' empty' : ''}`
       el.innerHTML = `
-        <div class="ledger-fill" style="transform: scaleX(${b.left / b.points})"></div>
-        <div class="ledger-label"><span>${t('ledger.batch')} ${i + 1} · ${b.left} pts</span><span>${t('ledger.expires')} ${b.exp}</span></div>`
+        <div class="ledger-row">
+          <span class="ledger-name">${t('ledger.batch')} ${i + 1} · ${b.left} pts</span>
+          <span class="ledger-exp">${t('ledger.expires')} ${b.exp}</span>
+        </div>
+        <div class="ledger-track"><div class="ledger-fill" style="transform: scaleX(${b.left / b.points})"></div></div>`
       stage.appendChild(el)
     })
     count.textContent = `↓ ${redeemed} ${t('ledger.redeemed')}`

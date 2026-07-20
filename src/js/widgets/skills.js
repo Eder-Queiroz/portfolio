@@ -7,6 +7,7 @@ const HIDE_MS = 200
 export function initSkillsWidget(root) {
   const tip = document.createElement('div')
   tip.className = 'skill-tooltip'
+  tip.id = 'skill-tooltip'
   tip.setAttribute('role', 'tooltip')
   tip.hidden = true
   document.body.appendChild(tip)
@@ -15,6 +16,13 @@ export function initSkillsWidget(root) {
   let openedBy = null
   let hideTimer = null
   let showFrame = null
+  let describedChip = null
+
+  const describe = (chip) => {
+    if (describedChip && describedChip !== chip) describedChip.removeAttribute('aria-describedby')
+    if (chip) chip.setAttribute('aria-describedby', 'skill-tooltip')
+    describedChip = chip
+  }
 
   const position = async (chip) => {
     const { x, y } = await computePosition(chip, tip, {
@@ -29,6 +37,7 @@ export function initSkillsWidget(root) {
     if (showFrame) { cancelAnimationFrame(showFrame); showFrame = null }
     current = chip
     openedBy = by
+    describe(chip)
     tip.textContent = t(`skills.${chip.dataset.skill}.tip`)
     tip.hidden = false
     await position(chip)
@@ -42,6 +51,7 @@ export function initSkillsWidget(root) {
   const hide = () => {
     if (showFrame) { cancelAnimationFrame(showFrame); showFrame = null }
     tip.classList.remove('is-visible')
+    describe(null)
     current = null
     openedBy = null
     if (hideTimer) clearTimeout(hideTimer)

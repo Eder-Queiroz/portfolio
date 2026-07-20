@@ -2,8 +2,10 @@ import { t, onLangChange } from '../i18n.js'
 import { prefersReducedMotion } from '../utils.js'
 
 const DAYS = 5, PERIODS = 4, TEACHERS = 6, CELLS = DAYS * PERIODS
-// COLORS mirror design palette tokens: secondary, primary-strong, success, warning, danger, text-soft
-const COLORS = ['#80A1C1', '#F5B08F', '#16A34A', '#D97706', '#DC2626', '#4B5563']
+// Cores de professor — espelham os tokens (secondary, primary, success, warning
+// + dois tons de apoio). Nenhuma é vermelha: o vermelho é exclusivo do conflito.
+const COLORS = ['#80A1C1', '#FAD4C0', '#34D399', '#FBBF24', '#C4B5FD', '#A8A29B']
+const CONFLICT = '#F87171' // = --color-danger
 
 const conflicts = (g) => {
   let c = 0
@@ -52,18 +54,21 @@ export function initGeneticWidget(root) {
     const w = canvas.width / DAYS, h = canvas.height / PERIODS
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     for (let d = 0; d < DAYS; d++) {
-      const seen = {}
+      const counts = {}
+      for (let p = 0; p < PERIODS; p++) {
+        const teach = best[d * PERIODS + p]
+        counts[teach] = (counts[teach] || 0) + 1
+      }
       for (let p = 0; p < PERIODS; p++) {
         const teach = best[d * PERIODS + p]
         ctx.fillStyle = COLORS[teach]
         ctx.beginPath()
         ctx.roundRect(d * w + 3, p * h + 3, w - 6, h - 6, 6)
         ctx.fill()
-        if (seen[teach] !== undefined) {
-          ctx.strokeStyle = '#DC2626'; ctx.lineWidth = 3
+        if (counts[teach] > 1) { // marca AMBAS as células em conflito no dia
+          ctx.strokeStyle = CONFLICT; ctx.lineWidth = 3
           ctx.stroke()
         }
-        seen[teach] = true
       }
     }
     status.textContent = c === 0
