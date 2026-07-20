@@ -1,6 +1,6 @@
 # Portfólio — Eder Queiroz
 
-Site pessoal de portfólio de **Eder Queiroz**, engenheiro de software. Uma landing page única em layout *bento*, com três widgets animados que ilustram cases reais (um ledger de pontos com consumo FIFO, uma fila SQS com retries/DLQ e um algoritmo genético), suporte a **PT/EN** e tooltips de skills.
+Site pessoal de portfólio de **Eder Queiroz**, engenheiro de software. Uma landing page única, dark e editorial, com três widgets animados que ilustram cases reais (um ledger de pontos com consumo FIFO, uma fila SQS com retries/DLQ e um algoritmo genético), stack agrupada com tooltips, timeline de trajetória e suporte a **PT/EN**.
 
 Publicado em: **https://ederqueiroz.dev.br/**
 
@@ -9,7 +9,7 @@ Publicado em: **https://ederqueiroz.dev.br/**
 - [Vite](https://vitejs.dev/) — build e dev server
 - HTML / CSS / JavaScript puro (sem framework de UI)
 - [`@floating-ui/dom`](https://floating-ui.com/) — posicionamento dos tooltips de skills
-- [`motion`](https://motion.dev/) — animações
+- Reveal no scroll via `IntersectionObserver` + CSS (sem lib de animação)
 - Fontes self-hosted via `@fontsource-variable/inter` e `@fontsource-variable/jetbrains-mono` (sem chamadas externas ao Google Fonts)
 
 ## Como rodar localmente
@@ -97,4 +97,4 @@ O site é 100% estático — basta servir o conteúdo de `dist/` com qualquer se
 
 ## Internacionalização (i18n)
 
-O conteúdo textual vive em `src/i18n/pt.json` e `src/i18n/en.json`, aplicado via `src/js/i18n.js` a elementos marcados com `data-i18n="chave"` no `index.html`. O idioma escolhido pelo usuário (botão de troca no header) é persistido em `localStorage`, e a próxima visita já carrega no idioma salvo. Português é o idioma padrão.
+O conteúdo textual vive em `src/i18n/pt.json` e `src/i18n/en.json`, aplicado via `src/js/i18n.js` a elementos marcados com `data-i18n="chave"` no `index.html`. O texto em português também fica embutido no HTML como fallback (a página continua legível sem JavaScript). O idioma inicial é detectado a partir do `navigator.language` (EN para navegadores não-PT), a escolha manual (botão no header) é persistida em `localStorage`, e o PT é o fallback para chaves ausentes.
